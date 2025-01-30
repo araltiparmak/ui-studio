@@ -50,9 +50,9 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         env:
           NAME: ${{ steps.login-ecr.outputs.registry }}/${{ env.PROJECT_NAME }}:${{ github.sha }}
-          run: |
-            docker build -t ${{ NAME }} .
-            docker push ${{ NAME }}
+        run: |
+          docker build -t ${{ NAME }} .
+          docker push ${{ NAME }}
 
   deploy:
     name: Deploy
@@ -73,12 +73,9 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE }}
           aws-region: ${{ env.AWS_REGION }}
 
-      - name: Deploy app to S3
-        run: aws s3 sync dist/ s3://${{ env.BUCKET_NAME }} --delete
-
       - name: Build, tag, and push image to Amazon ECR
         env:
           NAME: ${{ steps.login-ecr.outputs.registry }}/${{ env.PROJECT_NAME }}:latest
-          run: |
-            docker build -t ${{ NAME }} .
-            docker push ${{ NAME }}
+        run: |
+          docker build -t ${{ NAME }} .
+          docker push ${{ NAME }}
