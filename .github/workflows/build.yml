@@ -51,8 +51,8 @@ jobs:
         env:
           NAME: ${{ steps.login-ecr.outputs.registry }}/${{ env.PROJECT_NAME }}:${{ github.sha }}
         run: |
-          docker build -t ${{ env.NAME }} .
-          docker push ${{ env.NAME }}
+          docker build -t $NAME .
+          docker push $NAME
 
   deploy:
     name: Deploy
@@ -73,9 +73,20 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE }}
           aws-region: ${{ env.AWS_REGION }}
 
+      - name: Login to AWS ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
       - name: Build, tag, and push image to Amazon ECR
+        env:
+          NAME: ${{ steps.login-ecr.outputs.registry }}/${{ env.PROJECT_NAME }}:${{ github.sha }}
+        run: |
+          docker build -t $NAME .
+          docker push $NAME
+
+      - name: Set 'latest' tag for docker image
         env:
           NAME: ${{ steps.login-ecr.outputs.registry }}/${{ env.PROJECT_NAME }}:latest
         run: |
-          docker build -t ${{ env.NAME }} .
-          docker push ${{ env.NAME }}
+          docker tag $NAME:${{ github.sha }} $NAME:latest
+          docker push $NAME:latest
