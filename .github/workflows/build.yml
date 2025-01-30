@@ -84,7 +84,7 @@ jobs:
           TAG: ${{ github.sha }}
         run: |
           docker build -t $NAME:$TAG .
-          docker push $NAME
+          docker push $NAME:$TAG
 
       - name: Set 'latest' tag for docker image
         env:
