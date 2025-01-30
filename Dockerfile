@@ -1,7 +1,7 @@
 # Build stage
 FROM node:22-slim AS build
 WORKDIR /app
-COPY yarn.json yarn-lock.json ./
+COPY package.json yarn-lock.json ./
 RUN npm install --frozen-lockfile
 COPY . .
 RUN npm run build
