@@ -1,0 +1,45 @@
+name: Terraform Apply
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "terraform/**"
+      - ".github/workflows/tf-apply.yml"
+
+env:
+  AWS_REGION: eu-central-1
+  TERRAFORM_VERSION: 1.10.4
+  TERRAFORM_WORKING_DIRECTORY: terraform
+
+jobs:
+  terraform-apply:
+    name: Terraform Apply
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ env.TERRAFORM_WORKING_DIRECTORY }}
+
+    permissions:
+      id-token: write # This is required for aws oidc connection
+      contents: read
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TERRAFORM_VERSION }}
+
+      - run: terraform init
+
+      - name: Apply Terraform
+        run: terraform apply -auto-approve -input=false
