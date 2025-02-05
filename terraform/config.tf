@@ -25,5 +25,6 @@ provider "aws" {
 
 locals {
   github_account = "araltiparmak"
-  repo           = "synapse"
+  repo           = "ui-forge-ai-studio"
+  bucket         = "ui-forge-ai-studio"
 }

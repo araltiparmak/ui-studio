@@ -2934,29 +2934,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"synapse@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "synapse@workspace:."
-  dependencies:
-    "@eslint/js": "npm:^9.17.0"
-    "@tailwindcss/vite": "npm:^4.0.0"
-    "@types/react": "npm:^18.3.18"
-    "@types/react-dom": "npm:^18.3.5"
-    "@vitejs/plugin-react": "npm:^4.3.4"
-    eslint: "npm:^9.17.0"
-    eslint-config-prettier: "npm:^10.0.1"
-    eslint-plugin-react-hooks: "npm:^5.0.0"
-    eslint-plugin-react-refresh: "npm:^0.4.16"
-    globals: "npm:^15.14.0"
-    prettier: "npm:^3.4.2"
-    react: "npm:^18.3.1"
-    react-dom: "npm:^18.3.1"
-    typescript: "npm:~5.6.2"
-    typescript-eslint: "npm:^8.18.2"
-    vite: "npm:^6.0.5"
-  languageName: unknown
-  linkType: soft
-
 "tailwindcss@npm:4.0.1":
   version: 4.0.1
   resolution: "tailwindcss@npm:4.0.1"
@@ -3045,6 +3022,29 @@ __metadata:
   checksum: 10c0/7c9d2e07c81226d60435939618c91ec2ff0b75fbfa106eec3430f0fcf93a584bc6c73176676f532d78c3594fe28a54b36eb40b3d75593071a7ec91301533ace7
   languageName: node
   linkType: hard
+
+"ui-forge-ai-studio@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "ui-forge-ai-studio@workspace:."
+  dependencies:
+    "@eslint/js": "npm:^9.17.0"
+    "@tailwindcss/vite": "npm:^4.0.0"
+    "@types/react": "npm:^18.3.18"
+    "@types/react-dom": "npm:^18.3.5"
+    "@vitejs/plugin-react": "npm:^4.3.4"
+    eslint: "npm:^9.17.0"
+    eslint-config-prettier: "npm:^10.0.1"
+    eslint-plugin-react-hooks: "npm:^5.0.0"
+    eslint-plugin-react-refresh: "npm:^0.4.16"
+    globals: "npm:^15.14.0"
+    prettier: "npm:^3.4.2"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
+    typescript: "npm:~5.6.2"
+    typescript-eslint: "npm:^8.18.2"
+    vite: "npm:^6.0.5"
+  languageName: unknown
+  linkType: soft
 
 "unique-filename@npm:^4.0.0":
   version: 4.0.0

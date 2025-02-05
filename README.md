@@ -48,4 +48,4 @@ export default tseslint.config({
   },
 })
 ```
-# synapse
+# ui-forge-ai-studio
