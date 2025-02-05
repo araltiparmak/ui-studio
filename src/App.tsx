@@ -1,20 +1,20 @@
 import React, { useState } from "react";
+import { FormSchema } from "./types.ts";
 
 const App = () => {
   const [prompt, setPrompt] = useState("");
-  const [jsonResult, setJsonResult] = useState(null);
+  const [jsonResult, setJsonResult] = useState<FormSchema>();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulating API call with sample JSON
     try {
       // Simulate network delay
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      const sampleResponse = {
+      const sampleResponse: FormSchema = {
         formTitle: "Contact Form",
         fields: [
           {
