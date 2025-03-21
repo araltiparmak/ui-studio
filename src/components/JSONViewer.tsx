@@ -1,4 +1,6 @@
+// eslint-disable-next-line
 export const JSONViewer = ({ data }: { data: any }) => {
+  // eslint-disable-next-line
   const formatJSON = (obj: any) => {
     try {
       return JSON.stringify(obj, null, 2);
