@@ -50,4 +50,4 @@ export default tseslint.config({
   },
 })
 ```
-# ui-forge-ai-studio
+# ui-studio

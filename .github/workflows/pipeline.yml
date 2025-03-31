@@ -9,8 +9,8 @@ on:
 env:
   NODE_VERSION: 22
   AWS_REGION: eu-central-1
-  PROJECT_NAME: ui-forge-ai-studio
-  BUCKET_NAME: ui-forge-ai-studio
+  PROJECT_NAME: ui-studio
+  BUCKET_NAME: ui-studio
 
 jobs:
   build:
