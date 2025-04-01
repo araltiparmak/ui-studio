@@ -90,6 +90,10 @@ jobs:
 
       - name: Deploy app to S3
         run: aws s3 sync dist/ s3://${{ env.BUCKET_NAME }} --delete
+
+      - name: Invalidate CloudFront
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.UI_STUDIO_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
 #dockerize start
 #      - name: Login to AWS ECR
 #        id: login-ecr
