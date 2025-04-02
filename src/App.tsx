@@ -85,7 +85,7 @@ const App = () => {
                 <JSONViewer data={jsonResult} />
                 <div className="mt-4">
                   <a
-                    href={`http://ui-engine.s3-website.eu-central-1.amazonaws.com/forms/${encodeURIComponent(id ?? "")}`}
+                    href={`http://ui-engine.s3-website.eu-central-1.amazonaws.com/?formId=${encodeURIComponent(id ?? "")}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
