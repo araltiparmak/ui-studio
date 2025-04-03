@@ -2,7 +2,7 @@ module "website" {
   source              = "github.com/araltiparmak/terraform-modules//static-site?ref=v1.1.0"
   domain_name         = local.bucket
   with_cloudfront     = true
-  cloudfront_aliases  = ["ui.araltiparmak.com"]
+  cloudfront_aliases  = ["ui.araltiparmak.com", "jsonsmith.araltiparmak.com"]
   acm_certificate_arn = local.acm_certificate_arn
 }
 
