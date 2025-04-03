@@ -1,6 +1,7 @@
 import { JSONViewer } from "./JSONViewer.tsx";
 import { OpenLiveForm } from "./OpenLiveForm.tsx";
 import { useFormStore } from "../store/useFormStore.ts";
+import { PoweredBy } from "./PoweredBy.tsx";
 
 export const FormSchemaView = () => {
   const { jsonResult, id } = useFormStore();
@@ -16,6 +17,9 @@ export const FormSchemaView = () => {
         </h2>
         <OpenLiveForm id={id} />
       </div>
+
+      <PoweredBy />
+
       <JSONViewer data={jsonResult} />
     </div>
   );
