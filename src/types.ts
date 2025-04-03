@@ -1,13 +1,31 @@
+type FieldType =
+  | "text"
+  | "email"
+  | "number"
+  | "select"
+  | "checkbox"
+  | "radio"
+  | "textarea";
+
 interface FormField {
-  type: string;
+  id: string;
+  type: FieldType;
   label: string;
   placeholder: string;
   required: boolean;
 }
 
-export interface FormSchema {
-  formTitle: string;
+interface FormSection {
+  id: string;
+  label: string;
   fields: FormField[];
+}
+
+export interface FormSchema {
+  id: string;
+  title: string;
+  sections: FormSection[];
+  submitUrl: string;
   submitButton: {
     text: string;
     color: string;
