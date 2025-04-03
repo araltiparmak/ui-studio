@@ -2,6 +2,7 @@ import { JSONViewer } from "./JSONViewer.tsx";
 import { OpenLiveForm } from "./OpenLiveForm.tsx";
 import { useFormStore } from "../store/useFormStore.ts";
 import { PoweredBy } from "./PoweredBy.tsx";
+import { CopyButton } from "./CopyButton.tsx";
 
 export const FormSchemaView = () => {
   const { jsonResult, id } = useFormStore();
@@ -17,10 +18,13 @@ export const FormSchemaView = () => {
         </h2>
         <OpenLiveForm id={id} />
       </div>
-
-      <PoweredBy />
+      <div className="flex justify-end mb-4">
+        <CopyButton textToCopy={JSON.stringify(jsonResult, null, 2)} />
+      </div>
 
       <JSONViewer data={jsonResult} />
+
+      <PoweredBy />
     </div>
   );
 };

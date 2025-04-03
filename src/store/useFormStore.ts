@@ -3,8 +3,8 @@ import { FormSchema } from "../types.ts";
 
 interface FormState {
   // State
-  id: string | undefined;
-  jsonResult: FormSchema | undefined;
+  id?: string;
+  jsonResult?: FormSchema;
   isLoading: boolean;
   promptText: string;
 
