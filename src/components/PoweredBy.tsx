@@ -4,7 +4,7 @@ export const PoweredBy = () => {
       <p className="text-gray-500">
         Powered by {""}
         <a href="https://nova.amazon.com/" target="_blank">
-          <u>Amazon Micro Nova</u>
+          <u>Amazon Nova</u>
         </a>
       </p>
     </div>
