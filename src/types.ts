@@ -1,7 +1,11 @@
 type FieldType =
   | "text"
   | "email"
+  | "tel"
   | "number"
+  | "password"
+  | "url"
+  | "date"
   | "select"
   | "checkbox"
   | "radio"

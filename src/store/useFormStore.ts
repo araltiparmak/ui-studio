@@ -6,14 +6,14 @@ interface FormState {
   id: string | undefined;
   jsonResult: FormSchema | undefined;
   isLoading: boolean;
-  prompt: string;
+  promptText: string;
 
   // Actions
   setId: (id: string) => void;
   setJsonResult: (result: FormSchema) => void;
   setLoading: (loading: boolean) => void;
-  setPrompt: (prompt: string) => void;
-  generateForm: () => Promise<void>;
+  setPromptText: (setPromptText: string) => void;
+  generateForm: (promptText: string) => Promise<void>;
 }
 
 export const useFormStore = create<FormState>((set) => ({
@@ -21,15 +21,15 @@ export const useFormStore = create<FormState>((set) => ({
   jsonResult: undefined,
   id: undefined,
   isLoading: false,
-  prompt: "",
+  promptText: "",
 
   // Actions
   setJsonResult: (result) => set({ jsonResult: result }),
   setId: (id) => set({ id }),
   setLoading: (loading) => set({ isLoading: loading }),
-  setPrompt: (prompt) => set({ prompt }),
+  setPromptText: (promptText) => set({ promptText }),
 
-  generateForm: async () => {
+  generateForm: async (promptText: string) => {
     try {
       set({ isLoading: true });
 
@@ -39,7 +39,7 @@ export const useFormStore = create<FormState>((set) => ({
       const response = await fetch(UI_ENGINE_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt }),
+        body: JSON.stringify({ promptText }),
       });
 
       if (!response.ok) {

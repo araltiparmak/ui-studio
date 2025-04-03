@@ -1,7 +1,7 @@
 import { useFormStore } from "../store/useFormStore.ts";
 
 export const ExamplePrompts = () => {
-  const { setPrompt } = useFormStore();
+  const { setPromptText } = useFormStore();
 
   const examples = [
     "Create a user registration form with personal info (name, email) and contact details (phone, address)",
@@ -18,7 +18,7 @@ export const ExamplePrompts = () => {
           key={i}
           example={example}
           index={i}
-          onClick={(example) => setPrompt(example)}
+          onClick={(example) => setPromptText(example)}
         />
       ))}
     </div>
