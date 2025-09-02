@@ -22,7 +22,7 @@ jobs:
       pull-requests: write # This is required for gh bot to comment PR
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Configure AWS credentials from AWS account
         uses: aws-actions/configure-aws-credentials@v4
