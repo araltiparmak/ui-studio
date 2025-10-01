@@ -46,7 +46,7 @@ jobs:
         run: terraform plan -no-color -input=false
 
       - name: Post Plan Results to Pull Request
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         env:
           PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
         with:
